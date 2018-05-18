@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
         libssl1.0-dev \
         libxrender1 \
         libfontconfig \
+        xfonts-utils \
+        cabextract \
         libxext6 \
         wget \
         libzip-dev \
@@ -24,6 +26,8 @@ RUN pecl channel-update pecl.php.net \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN wget -q http://ftp.de.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb \
+    && dpkg -i ttf-mscorefonts-installer_3.6_all.deb
 RUN wget -q https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
     && tar xf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
     && cp wkhtmltox/bin/wk* /usr/local/bin/
