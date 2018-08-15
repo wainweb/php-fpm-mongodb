@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
         autoconf \
         pkg-config \
         libssl1.0-dev \
+        fonts-takao-mincho \
         libxrender1 \
         libfontconfig \
         xfonts-utils \
