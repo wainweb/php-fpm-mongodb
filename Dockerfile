@@ -25,7 +25,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd 
 RUN pecl channel-update pecl.php.net \
     && pecl install mongodb \
-    && docker-php-ext-enable mongodb
+    && pecl install mcrypt-1.0.1 \
+    && docker-php-ext-enable mongodb \
+    && docker-php-ext-enable mcrypt
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN wget -q http://ftp.de.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb \
     && dpkg -i ttf-mscorefonts-installer_3.6_all.deb
