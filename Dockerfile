@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
         libxrender1 \
         libfontconfig \
         xfonts-utils \
+        xfonts-75dpi \
+        xfonts-base \
         cabextract \
         libxext6 \
         wget \
@@ -33,6 +35,6 @@ RUN pecl channel-update pecl.php.net \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN wget -q http://ftp.de.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb \
     && dpkg -i ttf-mscorefonts-installer_3.6_all.deb
-RUN wget -q https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
-    && tar xf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
-    && cp wkhtmltox/bin/wk* /usr/local/bin/
+RUN wget -q https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb \
+    && dpkg -i wkhtmltox_0.12.5-1.stretch_amd64.deb
+
